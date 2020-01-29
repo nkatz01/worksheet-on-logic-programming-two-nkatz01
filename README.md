@@ -32,7 +32,11 @@ and expresses “emmeline is a child of frank”.
     niece_of(X, Y)        "X is a niece of Y"
     grandfather_of(X, Y)  "X is a grandfather of Y"
     ```
-    Test each one by posing suitable queries and finding all their solutions.
+daughter_of(X,Y) :- child_of(X, Y) , female(X).
+uncle_of(Y, X) :- child_of(X, Z), child_of(Z, F),  child_of(Y,F) , Z\=Y, male(Y).
+niece_of(X,Y) :- child_of(X, Z), child_of(Z, F),  child_of(Y,F) , Z\=Y, female(Y).
+grandfather_of(Y, X) :- child_of(X, Z), child_of(Z, Y) , male(Y).
+Test each one by posing suitable queries and finding all their solutions.
     
     As a guiding example, this is how we might define "X is a sister of Y":
     ```
